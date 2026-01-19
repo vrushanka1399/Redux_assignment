@@ -6,6 +6,12 @@ function counterReducer(state = 0, action) {
     case "decrement":
       return state - 1;
 
+    case "incrementByValue":
+      return state + action.payload;
+
+    case "decrementByValue":
+      return state - action.payload;
+
     default:
       return state;
   }

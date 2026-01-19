@@ -5,12 +5,6 @@ function App() {
   const count = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const incrementByFive = () => {
-    for (let i = 0; i < 5; i++) {
-      dispatch({ type: "increment" });
-    }
-  };
-
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>Redux Counter</h1>
@@ -29,8 +23,23 @@ function App() {
 
       <br /><br />
 
-      <button onClick={incrementByFive}>
-        Increment by 5
+      {/* Increment By 5 */}
+      <button
+        onClick={() =>
+          dispatch({ type: "incrementByValue", payload: 5 })
+        }
+      >
+        IncrementBy5
+      </button>
+
+      {/* Decrement By 5 */}
+      <button
+        onClick={() =>
+          dispatch({ type: "decrementByValue", payload: 5 })
+        }
+        style={{ marginLeft: "10px" }}
+      >
+        DecrementBy5
       </button>
     </div>
   );
